@@ -1,0 +1,96 @@
+.toolbar {
+    height: 60px;
+    margin: -8px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+}
+
+.content {
+    display: flex;
+    padding: 10 16px;
+    margin-left: 18%;
+    margin-top: 5%;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.spaceBetween{
+    padding-bottom: 1em;
+}
+
+.input-icons i { 
+    position: absolute;
+    margin-left:7px;
+    margin-top: 6px;
+} 
+  
+.input-icons {
+    display: flex;
+    flex-direction: row; 
+    width: 96.5%; 
+    margin-bottom: 10px; 
+}   
+  
+.filterField { 
+    width: 20%; 
+    text-align: center; 
+    border-radius: 25px;
+}   
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% 14% 14% 14% 14% 14% auto;
+    grid-template-rows: 100%;
+    grid-gap: 1px;
+    background-color: gray;
+    padding: 1px;
+}
+
+.grid-container-title {
+    display: grid;
+    grid-template-columns: 20% 14% 14% 14% 14% 14% auto;
+    grid-template-rows: auto;
+    grid-gap: 1px;
+    background-color: gray;
+    padding: 1px;
+}
+
+.grid-container-title > div {
+    background-color: #a3cfe4;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.grid-container > div {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.image{
+    /* height:auto; background-size:auto; width:auto; */
+    background-image:url('https://cff2.earth.com/uploads/2017/11/08174338/How-ice-forms-inside-of-clouds.jpg');
+    min-height: 100%;
+    /* min-width: 1024px; */
+	
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+	
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
