@@ -1,0 +1,57 @@
+<!--Import libraries -->
+<link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--Main Code -->
+<main class="containerImg">
+    <div class="row">
+        <div class="col-md-6">
+            <button class="googleButton" mat-raised-button color="warn" (click)="signInWithGoogle()" *ngIf="!user">
+                <i class="fa fa-google"></i>
+                Log In with Google
+            </button>
+            <button class="signOutButton" mat-raised-button (click)="signOut()" *ngIf="user">
+                Sign Out
+            </button>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="col-md-6" *ngIf="user">
+            <!-- Content Code -->
+            <div class="content" role="main">
+                <!-- Filter Bar-->
+                <div class="input-icons">
+                    <i class="fa fa-search"></i>
+                    <input class="filterField" #filterInput [(ngModel)]="query" placeholder="Search by Username"
+                        (input)="filterInputs(filterInput.value)">
+                </div>
+
+                <div class="container">
+                    <!-- Matrix-->
+                    <div class="grid-container-title">
+                        <div>Identification</div>
+                        <div>Username</div>
+                        <div>Email</div>
+                        <div>Temperature (°C)</div>
+                        <div>Moisture</div>
+                        <div>Longitude</div>
+                        <div>Latitude</div>
+                    </div>
+
+                    <div class="spaceBetween"></div>
+
+                    <div *ngFor="let input of assignedInputs" class="grid-container">
+                        <div>{{input.id}}</div>
+                        <div>{{input.username}}</div>
+                        <div>{{input.email}}</div>
+                        <div>{{input.temperature}}</div>
+                        <div>{{input.moisture}}</div>
+                        <div>{{input.longitude}}</div>
+                        <div>{{input.latitude}}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
