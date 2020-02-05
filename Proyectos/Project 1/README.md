@@ -1,98 +1,62 @@
-# NuMath
+# Proyecto 1
 
-NuMath is a C++ shared library that implements several numerical methods.
+Proyecto basado en deteccion del clima usando sensores externos.
+La aplicacion consta con un Front y Back. Adicionalmente, contiene unas pruebas realizadas en Postman.
 
-Right now it implements the following methods:
-- Single variable equations
-  - Incremental search
-  - Bisection
-  - Flase position
-  - Fixed point
-  - Newton
-  - Secant
-  - Multiple roots
-  
-- Systems of equations
-  - Simple gaussian elimination
-  - Gaussian elimination with partial pivoting
-  - Gaussian elimination with total pivoting
-  - Doolittle Factorization
-  - Crout Factorization
-  - Cholesky Factorization
-  - Gauss-Seidel
-  - Jacobi
-  
-- Interpolation
-    - Newton
-    - Lagrage
-    - Linear splines
-    - Quadratic splines
-    - Cubic splines
+## Iniciando
 
-- Numerical Diferentiation
-    - With 2 points
-    - With 3 points
-    - With 5 points
-
-- Numerical Integration
-    - General Trapezium
-    - General Simpson 1/3
-    - General Simpson 3/8
-
-## Getting started
-
-First, clone the repository using: 
+Primero clonemos el repositorio
 ```bash
-git clone https://github.com/rvillegasm/NuMath.git
+https://github.com/fcortesj/Topics_In_Telematics.git
 ```
 
-### Prerequisits
+### Prerequisitos
 
-Make sure that you have the following dependencies installed in your system:
+Al momento de usar la aplicacion son necesarias ciertas cosas.
 
-- A C++ compiler that supports OpenMP and C++11 standards (like [gcc](https://gcc.gnu.org/)).
-- The GNU [make](https://www.gnu.org/software/make/) tool.
-- The [CMake](https://cmake.org/) tool.
+- Python3 (Recomendado la ultima version)
+- pip (Packet Manager de Python3)
+- Node (Especificamente npm y Angular Cli)
+- PostMan
 
-### Installation
+### Instacion
 
-In the NuMath root directory, create a build directory:
+Back-End: Para instalar lo necesario en el back-end desde el directorio raiz, primero corremos:
 ```bash
-mkdir build
-cd build
+cd server
 ```
-Then run CMake and compile using Make:
+Una vez en el directorio del back-end realizamos los siguientes comandos:
 ```bash
-cmake ..
-make
+pip install Flask Flask-PyMongo flask-restful pymongo flask-cors
 ```
-That will compile the library and create a shared object in the ```build/lib``` directory.
-
-After that, install it in your system with:
+Regresamos al directorio base y ahora vamos a instalar lo necesario para el front-end, por lo que nos movemos al directorio:
 ```bash
-sudo make install
-sudo ldconfig
+cd app
+```
+En el directorio ya que poseemos npm y angular CLI ejecutamos, para instalar todas las dependecias:
+```bash
+npm install
 ```
 
-By doing this you will have NuMath available in your system as **libnumath**.
+## Uso
 
-## Usage
-
-To use NuMath simply include the header file in your C++ file:
-
-```c++
-#include "numath.h"
-
-int main() {
-    // ... your code goes here
-}
+- Corriendo el Back-End desde directorio raiz:
+```bash
+cd server
+py server.py (o tambien) python3 server.py
 ```
+En este caso el back-end se ejecutara en la direccion http://localhost:5000/
 
-### Proyect structure
-
-Every numerical method is located inside the ```numath::<method_category>``` namespace, so in order to use the lagrange interpolation method, you would have to call:
-```c++
-numath::interpolation::lagrange(/*Arguments*/);
+- Corriendo el Front-End desde directorio raiz:
+```bash
+cd app
+ng serve
+(para abrir automaticamente)
+ng serve -o
 ```
+En este caso el front-end se ejecutara en la direccion http://localhost:4200/
 
-Check out the documentation of every method to know theirs parameters, as well as what they return.
+### Correr Test
+
+Al tener PostMan instalado y la aplicacion corriendo, se importara el archivo en el directorio test.
+Luego se pueden correr los dos request en la coleccion y revisar el resultado de las pruebas.
