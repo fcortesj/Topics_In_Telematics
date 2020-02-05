@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "45b4b82d-c2eb-4711-b644-39c7b6c07887",
+		"name": "Input Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request Input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fac6fc14-b0aa-4b1d-b6f9-9257fd1df01b",
+						"exec": [
+							"// Post Input Validation Case",
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/manage_inputs?username=sburgs&email=sburgs@udea.edu.co&temperature=20&moisture=10&longitude=154.5&latitude=92.4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"manage_inputs"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "sburgs"
+						},
+						{
+							"key": "email",
+							"value": "sburgs@udea.edu.co"
+						},
+						{
+							"key": "temperature",
+							"value": "20"
+						},
+						{
+							"key": "moisture",
+							"value": "10"
+						},
+						{
+							"key": "longitude",
+							"value": "154.5"
+						},
+						{
+							"key": "latitude",
+							"value": "92.4"
+						}
+					]
+				},
+				"description": "We request an input from postman to the python server"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Inputs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c25645d-2c60-41f6-889b-089cf659845f",
+						"exec": [
+							"//Check validation code test",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Check Schema validation",
+							"var schema = {",
+							" \"id\": \"string\",",
+							" \"username\": \"string\",",
+							" \"email\": \"string\",",
+							" \"temperature\": \"string\",",
+							" \"moisture\": \"string\",",
+							" \"longitude\": \"string\",",
+							" \"latitude\": \"string\"",
+							"};",
+							"",
+							"//We get an example of an input",
+							"var data1 = [\"5e3a07de4170dc6350ebb2b7\",\"fcortesj\", \"fcortesj@eafit.edu.co\", \"24\", \"10\", \"161.59\", \"25.5\"];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/manage_inputs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"manage_inputs"
+					]
+				},
+				"description": "In this request we get all inputs in mongodb database"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
