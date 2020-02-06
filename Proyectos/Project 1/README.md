@@ -56,7 +56,7 @@ ng serve -o
 ```
 En este caso el front-end se ejecutara en la direccion http://localhost:4200/
 
-# Una vez dentro de la aplicacion ingresar al boton menu arriba a la izquiera, apra observar las opciones como Log In o Main Menu
+#### Una vez dentro de la aplicacion ingresar al boton menu arriba a la izquiera, apra observar las opciones como Log In o Main Menu
 
 ### Correr Test
 
